@@ -99,4 +99,11 @@ public class Ex1 {
         return false;
     }
 
+    public static int maxIndex(String[] arr) {
+        int ans = 0;
+        // add your code here
+
+        ////////////////////
+        return ans;
+    }
 }

@@ -24,7 +24,29 @@ public class Ex1Main {
                 }
                     System.out.println("value: " + Ex1.number2Int(numBase2));
                     System.out.println(Ex1.isNumber(numBase2));
-                    // System.out.println(equals(numBase1,numBase2));
+                    //System.out.println(Ex1.equals(numBase1,numBase2));
+                System.out.println("Enter a base for output: a number [2,16]");
+                int baseF=sc.nextInt();
+                if(baseF<2||baseF>16){
+                    System.out.println("not valid base");
+                    return;
+                }
+                int bIndex1 = numBase1.indexOf('b');
+                int bIndex2 = numBase2.indexOf('b');
+
+                String partBase1 = numBase1.substring( bIndex1+ 1);
+                String partBase2 = numBase2.substring(bIndex2 + 1);
+                int base1=Integer.parseInt(partBase1);
+                int base2=Integer.parseInt(partBase2);
+                int num1=Ex1.number2Int(numBase1);
+                int num2=Ex1.number2Int(numBase2);
+                int sum=num1+num2;
+                String numBS=Ex1.int2Number(sum,baseF);
+                System.out.println("numbs "+numBS);
+                int realSum=Ex1.number2Int(numBS);
+
+                System.out.println(Ex1.int2Number( num1, base1)+"+"+Ex1.int2Number(num2,base2)+"="+realSum);
+
 
                }
 
