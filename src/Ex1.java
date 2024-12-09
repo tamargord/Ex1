@@ -10,7 +10,7 @@ public class Ex1 {
         }
 
         String partNum = num.substring(0, bIndex);
-        String partBase = num.substring(bIndex + 1, num.length());
+        String partBase = num.substring(bIndex + 1);
         if (partBase.length() > 1) {
             System.out.println("wrong format!");
             return -1;
@@ -25,12 +25,12 @@ public class Ex1 {
         }
 
         int base;
-
         if (partBase.length() == 1 && partBase.charAt(0) >= 'A' && partBase.charAt(0) <= 'G') {
             base = partBase.charAt(0) - 'A' + 10;
         } else {
             base = Integer.parseInt(partBase);
         }
+
 
         if (base < 2 || base > 16) {
             System.out.println("wrong format!");
@@ -39,6 +39,7 @@ public class Ex1 {
             return Integer.parseInt(partNum, base);
         }
     }
+
 
     public static boolean isNumber(String a) {
         if (a == null) {
