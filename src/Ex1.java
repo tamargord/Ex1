@@ -1,6 +1,4 @@
-import org.w3c.dom.ls.LSOutput;
-import java.util.Scanner;
-public class Main {
+public class Ex1 {
     public static int number2Int(String num) {
         if (num == null) {
             return -1;
@@ -88,8 +86,9 @@ public class Main {
         if (num == 0) {
             return "0";
         }
-        return Integer.toString(num, base).toUpperCase()+ "b" + base;
-}
+        return Integer.toString(num, base).toUpperCase() + "b" + base;
+    }
+
     public static boolean equals(String n1, String n2) {
         int newN1 = number2Int(n1);
         int newN2 = number2Int(n2);
@@ -99,20 +98,4 @@ public class Main {
         return false;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner= new Scanner(System.in);
-        System.out.println("enter a String as number1");
-        String numBase1 = scanner.next();
-        System.out.println("the given number+base:"+numBase1);
-        System.out.println( "value: "+number2Int(numBase1));
-        System.out.println(isNumber(numBase1));
-        System.out.println("enter a number as number2");
-        String numBase2 =scanner.next();
-        System.out.println( "value: "+number2Int(numBase2));
-        System.out.println(isNumber(numBase2));
-       // System.out.println(equals(numBase1,numBase2));
-
-
-
-    }
 }
