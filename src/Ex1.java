@@ -9,9 +9,9 @@ public class Ex1 {
             System.out.println("wrong format!");
             return -1;
         }
-       if (bIndex == -1){
-           return Integer.parseInt(num);
-       }
+        if (bIndex == -1){
+            return Integer.parseInt(num);
+        }
         String partBase =num.substring(bIndex + 1);
         String partNum = num.substring(0, bIndex);
 
@@ -53,9 +53,9 @@ public class Ex1 {
         if (bIndex == 0 || bIndex == a.length() - 1) {
             return false;
         }
-       if(bIndex==-1){
-           return true;
-       }
+        if(bIndex==-1){
+            return true;
+        }
         String partNum = a.substring(0, bIndex);
         String partBase = a.substring(bIndex + 1, a.length());
         if (partBase.length() > 1) {
@@ -112,4 +112,17 @@ public class Ex1 {
         ////////////////////
         return ans;
     }
-}
+    public static int valueOfNumber(char n) {
+        if (n >= '0' && n <= '9') {
+            return n - '0';
+        }
+        if(n>='A' &&n<='G'){
+            return n-'A'+10;
+        }
+        return -1;
+    }
+//public static String compareBaseNum(String num,String base){
+//return -1;
+//}
+
+//}
