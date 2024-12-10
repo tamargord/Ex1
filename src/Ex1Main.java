@@ -16,7 +16,11 @@ public class Ex1Main {
                     System.out.print("num1:" + numBase1+ " ");
                     System.out.print("is number:" + Ex1.isNumber(numBase1)+ " ");
                     System.out.print("," +"value:" + Ex1.number2Int(numBase1)+ " ");
-
+                    System.out.println();
+                if (!Ex1.isNumber(numBase1)) {
+                    System.out.println("ERR: num2 is in the wrong format!");
+                    return; //
+                }
                 System.out.println();
                 System.out.println("Enter a string as number#2 (or \"quit\" to end the program): ");
                 numBase2 = sc.next();
@@ -26,6 +30,11 @@ public class Ex1Main {
                     System.out.print("num2:" + numBase2+ " ");
                     System.out.print("is number:" + Ex1.isNumber(numBase2)+" ");
                     System.out.print(","+"value:"+Ex1.number2Int(numBase2)+ " " );
+                System.out.println();
+                if (!Ex1.isNumber(numBase2)) {
+                    System.out.println("ERR: num1 is in the wrong format!");
+                    return; //
+                }
                     //System.out.println(Ex1.equals(numBase1,numBase2));
                 System.out.println();
                 System.out.println("Enter a base for output: a number [2,16]");

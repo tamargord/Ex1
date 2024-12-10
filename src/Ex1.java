@@ -5,15 +5,19 @@ public class Ex1 {
         }
 
         int bIndex = num.indexOf('b');
-        if ( bIndex == 0 || bIndex == num.length() - 1) {
+        if (bIndex == 0 || bIndex == num.length() - 1) {
             System.out.println("wrong format!");
             return -1;
         }
-        if (bIndex == -1){
+        if (bIndex == -1) {
             return Integer.parseInt(num);
         }
-        String partBase =num.substring(bIndex + 1);
+        String partBase = num.substring(bIndex + 1);
         String partNum = num.substring(0, bIndex);
+        if (!isNumber(num)) {
+
+            return -1;
+        }
 
         if (partBase.length() > 1) {
             System.out.println("wrong format!");
@@ -27,6 +31,7 @@ public class Ex1 {
             System.out.println("wrong format!");
             return -1;
         }
+
 
         int base;
         if (partBase.length() == 1 && partBase.charAt(0) >= 'A' && partBase.charAt(0) <= 'G') {
@@ -53,11 +58,21 @@ public class Ex1 {
         if (bIndex == 0 || bIndex == a.length() - 1) {
             return false;
         }
-        if(bIndex==-1){
+
+
+        if (bIndex == -1) {
+            for (char c : a.toCharArray()) {
+                int val = valueOfNumber(c);
+                if (val == -1 || val > 9) {
+                    return false;
+                }
+            }
             return true;
         }
+
         String partNum = a.substring(0, bIndex);
-        String partBase = a.substring(bIndex + 1, a.length());
+        String partBase = a.substring(bIndex + 1);
+
         if (partBase.length() > 1) {
             return false;
         }
@@ -67,6 +82,7 @@ public class Ex1 {
         if (Character.isLowerCase(partBase.charAt(0))) {
             return false;
         }
+
         int base;
         if (partBase.length() == 1 && partBase.charAt(0) >= 'A' && partBase.charAt(0) <= 'G') {
             base = partBase.charAt(0) - 'A' + 10;
@@ -74,11 +90,19 @@ public class Ex1 {
             base = Integer.parseInt(partBase);
         }
 
+
         if (base < 2 || base > 16) {
             return false;
-        } else {
-            return true;
         }
+       //loops for each character in the string
+        for (char c : partNum.toCharArray()) {
+            int val = valueOfNumber(c);//valueOfNumber is a function that returns the value of character
+            if (val == -1 || val >= base) {
+                return false;
+            }
+        }
+
+       return true;
     }
 
 
@@ -112,17 +136,34 @@ public class Ex1 {
         ////////////////////
         return ans;
     }
+
     public static int valueOfNumber(char n) {
         if (n >= '0' && n <= '9') {
             return n - '0';
         }
-        if(n>='A' &&n<='G'){
-            return n-'A'+10;
+        if (n >= 'A' && n <= 'G') {
+            return n - 'A' + 10;
         }
         return -1;
     }
-//public static String compareBaseNum(String num,String base){
-//return -1;
-//}
+
+    public static boolean compareBaseNum(String num, String base) {
+        int baseInt = Integer.parseInt(base);
+        if (baseInt < 2 || baseInt > 16) {
+            System.out.println("wrong format!");
+            return false;
+        }
+        for (int i = 0; i < num.length(); i++) {
+            int digit = valueOfNumber(num.charAt(i));
+            if (digit == -1 || digit >= baseInt) {
+                System.out.println("wrong format!");
+                return false;
+            }
+
+        }
+        return true;
+
+    }
+}
 
 //}
