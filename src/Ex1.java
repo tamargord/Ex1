@@ -3,14 +3,18 @@ public class Ex1 {
         if (num == null) {
             return -1;
         }
+
         int bIndex = num.indexOf('b');
-        if (bIndex == -1 || bIndex == 0 || bIndex == num.length() - 1) {
+        if ( bIndex == 0 || bIndex == num.length() - 1) {
             System.out.println("wrong format!");
             return -1;
         }
-
+       if (bIndex == -1){
+           return Integer.parseInt(num);
+       }
+        String partBase =num.substring(bIndex + 1);
         String partNum = num.substring(0, bIndex);
-        String partBase = num.substring(bIndex + 1);
+
         if (partBase.length() > 1) {
             System.out.println("wrong format!");
             return -1;
@@ -46,10 +50,12 @@ public class Ex1 {
             return false;
         }
         int bIndex = a.indexOf('b');
-        if (bIndex == -1 || bIndex == 0 || bIndex == a.length() - 1) {
+        if (bIndex == 0 || bIndex == a.length() - 1) {
             return false;
         }
-
+       if(bIndex==-1){
+           return true;
+       }
         String partNum = a.substring(0, bIndex);
         String partBase = a.substring(bIndex + 1, a.length());
         if (partBase.length() > 1) {
