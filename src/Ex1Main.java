@@ -32,7 +32,7 @@ public class Ex1Main {
                     System.out.print(","+"value:"+Ex1.number2Int(numBase2)+ " " );
                 System.out.println();
                 if (!Ex1.isNumber(numBase2)) {
-                    System.out.println("ERR: num1 is in the wrong format!");
+                    System.out.println("ERR: num2 is in the wrong format!");
                     return; //
                 }
                     //System.out.println(Ex1.equals(numBase1,numBase2));
@@ -60,7 +60,7 @@ public class Ex1Main {
                 System.out.println(numBase1+"+"+numBase2+"="+sumString1);
                 System.out.println(numBase1+"*"+numBase2+"="+sumString2);
                 String []arr={numBase1,numBase2,sumString1,sumString2};
-                System.out.println(Ex1.maxIndex(arr));
+                System.out.println("hhhh" +Ex1.maxIndex(arr));
 
 
                }

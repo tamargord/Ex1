@@ -3,35 +3,17 @@ public class Ex1 {
         if (num == null) {
             return -1;
         }
-
-        int bIndex = num.indexOf('b');
-        if (bIndex == 0 || bIndex == num.length() - 1) {
+        if (!isNumber(num)) {
             System.out.println("wrong format!");
             return -1;
         }
+
+        int bIndex = num.indexOf('b');
         if (bIndex == -1) {
             return Integer.parseInt(num);
         }
         String partBase = num.substring(bIndex + 1);
         String partNum = num.substring(0, bIndex);
-        if (!isNumber(num)) {
-
-            return -1;
-        }
-
-        if (partBase.length() > 1) {
-            System.out.println("wrong format!");
-            return -1;
-        }
-        if (Character.isLowerCase(partNum.charAt(0))) {
-            System.out.println("wrong format!");
-            return -1;
-        }
-        if (Character.isLowerCase(partBase.charAt(0))) {
-            System.out.println("wrong format!");
-            return -1;
-        }
-
 
         int base;
         if (partBase.length() == 1 && partBase.charAt(0) >= 'A' && partBase.charAt(0) <= 'G') {
@@ -39,7 +21,6 @@ public class Ex1 {
         } else {
             base = Integer.parseInt(partBase);
         }
-
 
         if (base < 2 || base > 16) {
             System.out.println("wrong format!");
@@ -72,8 +53,7 @@ public class Ex1 {
 
         String partNum = a.substring(0, bIndex);
         String partBase = a.substring(bIndex + 1);
-
-        if (partBase.length() > 1) {
+        if (partNum==null || partBase==null) {
             return false;
         }
         if (Character.isLowerCase(partNum.charAt(0))) {
@@ -82,14 +62,15 @@ public class Ex1 {
         if (Character.isLowerCase(partBase.charAt(0))) {
             return false;
         }
-
+        if (partBase.length() > 1) {
+            return false;
+        }
         int base;
         if (partBase.length() == 1 && partBase.charAt(0) >= 'A' && partBase.charAt(0) <= 'G') {
             base = partBase.charAt(0) - 'A' + 10;
         } else {
             base = Integer.parseInt(partBase);
         }
-
 
         if (base < 2 || base > 16) {
             return false;
@@ -130,25 +111,37 @@ public class Ex1 {
     }
 
     public static int maxIndex(String[] arr) {
-        int ans = 0;
-        // add your code here
+        int indexMax = -1;
+        int valueMax = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            int currentValue = number2Int(arr[i]);
+            if (currentValue == -1) {
+                return -1;
+            }
+            if (currentValue > valueMax) {
+                valueMax = currentValue;
+                indexMax = i;
+            }
+        }
+            return indexMax;
 
-        ////////////////////
-        return ans;
     }
 
-    public static int valueOfNumber(char n) {
+        public static int valueOfNumber(char n) {
         if (n >= '0' && n <= '9') {
             return n - '0';
         }
         if (n >= 'A' && n <= 'G') {
             return n - 'A' + 10;
         }
+        if (n >= 'a' && n <= 'g') {
+                return n - 'a' + 10;
+            }
         return -1;
     }
 
     public static boolean compareBaseNum(String num, String base) {
-        int baseInt = Integer.parseInt(base);
+        int baseInt = number2Int(base);
         if (baseInt < 2 || baseInt > 16) {
             System.out.println("wrong format!");
             return false;
@@ -166,4 +159,3 @@ public class Ex1 {
     }
 }
 
-//}
