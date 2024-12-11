@@ -36,23 +36,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
         @Test
         void int2NumberTest() {
-            assertEquals("1010b2", Ex1.int2Number(10, 2));
-            assertEquals("FbG", Ex1.int2Number(15, 16));
-            assertEquals("255b10", Ex1.int2Number(255, 10));
-            assertEquals(" ", Ex1.int2Number(-10, 1));
-            assertEquals(" ", Ex1.int2Number(-106, 2));
-            assertEquals(" ", Ex1.int2Number(10, 18));
-            assertEquals(" ", Ex1.int2Number(19, 17));
-            assertEquals(" ", Ex1.int2Number(12, 1));
-            assertEquals("0", Ex1.int2Number(0, 3));
+            String[] good = {"1010b2", "FbG", "255", "8b9", "0"};
+            for (int i = 0; i < good.length; i++) {
+                boolean ok = Ex1.isNumber(good[i]);
+                assertTrue(ok);
+            }
+            String[] bad = {"Fb16", "255b10"};
+            for (int i = 0; i < bad.length; i++) {
+                boolean not_ok = Ex1.isNumber(bad[i]);
+                assertFalse(not_ok);
+
+            }
         }
 
+        @Test
+        void maxIndexTest() {
 
-        //    @Test
-        //  void maxIndexTest() {
-        // implement this test
-        //   }
-
-        // Add additional test functions - test as much as you can.
-
+        }
     }

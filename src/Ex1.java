@@ -53,7 +53,7 @@ public class Ex1 {
 
         String partNum = a.substring(0, bIndex);
         String partBase = a.substring(bIndex + 1);
-        if (partNum==null || partBase==null) {
+        if (partNum == null || partBase == null) {
             return false;
         }
         if (Character.isLowerCase(partNum.charAt(0))) {
@@ -75,7 +75,7 @@ public class Ex1 {
         if (base < 2 || base > 16) {
             return false;
         }
-       //loops for each character in the string
+        //loops for each character in the string
         for (char c : partNum.toCharArray()) {
             int val = valueOfNumber(c);//valueOfNumber is a function that returns the value of character
             if (val == -1 || val >= base) {
@@ -83,7 +83,7 @@ public class Ex1 {
             }
         }
 
-       return true;
+        return true;
     }
 
 
@@ -100,8 +100,11 @@ public class Ex1 {
         }
         String ans2 = Integer.toString(num, base).toUpperCase();
         String baseString;
-        if (base > 9) {
-            baseString = Character.toString((char)('A' + base - 10));
+        if (base == 10) {
+            return Integer.toString(num);
+        }
+        if (base > 11) {
+            baseString = Character.toString((char) ('A' + base - 10));
 
         } else {
 
@@ -134,11 +137,12 @@ public class Ex1 {
                 indexMax = i;
             }
         }
-            return indexMax;
+        return indexMax;
 
     }
 
-        public static int valueOfNumber(char n) {
+
+    public static int valueOfNumber(char n) {
         if (n >= '0' && n <= '9') {
             return n - '0';
         }
@@ -146,8 +150,8 @@ public class Ex1 {
             return n - 'A' + 10;
         }
         if (n >= 'a' && n <= 'g') {
-                return n - 'a' + 10;
-            }
+            return n - 'a' + 10;
+        }
         return -1;
     }
 
@@ -168,5 +172,5 @@ public class Ex1 {
         return true;
 
     }
-}
 
+}
