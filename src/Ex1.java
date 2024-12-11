@@ -98,7 +98,18 @@ public class Ex1 {
         if (num == 0) {
             return "0";
         }
-        return Integer.toString(num, base).toUpperCase() + "b" + base;
+        String ans2 = Integer.toString(num, base).toUpperCase();
+        String baseString;
+        if (base > 9) {
+            baseString = Character.toString((char)('A' + base - 10));
+
+        } else {
+
+            baseString = Integer.toString(base);
+        }
+
+        return ans2 + "b" + baseString;
+
     }
 
     public static boolean equals(String n1, String n2) {
