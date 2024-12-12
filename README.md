@@ -1,9 +1,11 @@
+### Ex1 Class:
 The Ex1 class helps you work with numbers in base 2 to base 16 and convert them from their string format to int format and vice versa.
 the class also compares the numbers, does multiplictaion and addition between them and finds the largest number
-#Method number2Int(String num):
+## Methods:
+# Method number2Int(String num):
 takes a number written as a string and converts it to an integer/ if the number is invalid then returns -1.
-#Method isString(
-
+# Method isNumber(String a):
+checks whether a string represents a number in a valid format,only bases between 2-16
 
 
 
