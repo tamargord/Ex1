@@ -4,10 +4,9 @@ public class Ex1 {
             return -1;
         }
         if (!isNumber(num)) {
-            System.out.println("wrong format!");
+
             return -1;
         }
-
         int bIndex = num.indexOf('b');
         if (bIndex == -1) {
             return Integer.parseInt(num);// Integer.parseInt converts a string representation of a number into an int
