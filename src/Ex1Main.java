@@ -6,7 +6,7 @@ public class Ex1Main {
         Scanner sc = new Scanner(System.in);
         String numBase1 = "", numBase2 = "", quit = "quit";
 
-        while (true) {
+        while (!numBase1.equals(quit) && !numBase2.equals(quit)) {
             System.out.println();
             System.out.println("Ex1 class solution:");
             System.out.println("Enter a string as number#1 (or \"quit\" to end the program): ");
@@ -50,14 +50,11 @@ public class Ex1Main {
                 continue;
             }
 
-
             int num1 = Ex1.number2Int(numBase1);
             int num2 = Ex1.number2Int(numBase2);
 
-
             int sumPlus = num1 + num2;
             int sumKefel = num1 * num2;
-
 
             String sumString1 = Ex1.int2Number(sumPlus, baseF);
             String sumString2 = Ex1.int2Number(sumKefel, baseF);

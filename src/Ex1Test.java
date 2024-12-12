@@ -51,6 +51,44 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
         @Test
         void maxIndexTest() {
+            String[] arr1 = {"1011b2", "FFbG", "255", "7b8"};
+            assertEquals(1, Ex1.maxIndex(arr1));
+            String[] arr2 = {};
+            assertEquals(-1, Ex1.maxIndex(arr2));
+            String[] arr3 = {"10101b2","AbG","98736","0"};
+            assertEquals(2, Ex1.maxIndex(arr3));
+            String[] arr4 = {"8b9","5b6","7b8","4"};
+            assertEquals(0, Ex1.maxIndex(arr4));
+            String[] arr5 = {"7","5b6","15","35"};
+            assertEquals(3, Ex1.maxIndex(arr5));
+            String[] arr6 = {"2","3b8","5b7","6b7"};
+            assertEquals(3, Ex1.maxIndex(arr6));
+
+        }
+        @Test
+        public void testEquals() {
+            assertTrue(Ex1.equals("6b8", "6b9"));
+            assertTrue(Ex1.equals("7b8", "7"));
+            assertFalse(Ex1.equals("7b8", "8bG"));
+            assertFalse(Ex1.equals("123", "124"));
+        }
+
+        @Test
+        public void testValueOfNumber() {
+            assertEquals(3, Ex1.valueOfNumber('3'));
+            assertEquals(12, Ex1.valueOfNumber('C'));
+            assertEquals(16,Ex1.valueOfNumber('G'));
+            assertEquals(-1,Ex1.valueOfNumber('I'));
+        }
+        @Test
+        public void testCompareBaseNum() {
+            assertTrue(Ex1.compareBaseNum("101","2"));
+            assertFalse(Ex1.compareBaseNum("9","18"));
+            assertFalse(Ex1.compareBaseNum("102", "2"));
+            assertFalse(Ex1.compareBaseNum("100","1"));
+            assertFalse(Ex1.compareBaseNum("18","H"));
 
         }
     }
+
+

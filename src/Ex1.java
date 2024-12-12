@@ -10,7 +10,7 @@ public class Ex1 {
 
         int bIndex = num.indexOf('b');
         if (bIndex == -1) {
-            return Integer.parseInt(num);
+            return Integer.parseInt(num);// Integer.parseInt converts a string representation of a number into an int
         }
         String partBase = num.substring(bIndex + 1);
         String partNum = num.substring(0, bIndex);
@@ -26,11 +26,12 @@ public class Ex1 {
             System.out.println("wrong format!");
             return -1;
         } else {
+            // converts partNum to an int and if it's bigger than 9 then shows numbers as A-G.
             return Integer.parseInt(partNum, base);
         }
     }
 
-
+//checks whether a string represents a number in a valid format.
     public static boolean isNumber(String a) {
         if (a == null) {
             return false;
@@ -39,8 +40,6 @@ public class Ex1 {
         if (bIndex == 0 || bIndex == a.length() - 1) {
             return false;
         }
-
-
         if (bIndex == -1) {
             for (char c : a.toCharArray()) {
                 int val = valueOfNumber(c);
@@ -124,25 +123,26 @@ public class Ex1 {
         return false;
     }
 
-    public static int maxIndex(String[] arr) {
-        int indexMax = -1;
-        int valueMax = Integer.MIN_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            int currentValue = number2Int(arr[i]);
-            if (currentValue == -1) {
-                return -1;
+        public static int maxIndex(String[] arr) {
+            int indexMax = -1;
+            int valueMax = Integer.MIN_VALUE;
+            for (int i = 0; i < arr.length; i++) {
+                int currentValue = number2Int(arr[i]);
+                if (currentValue == -1) {
+                    return -1;
+                }
+                if (currentValue > valueMax) {
+                    valueMax = currentValue;
+                    indexMax = i;
+                }
+
             }
-            if (currentValue > valueMax) {
-                valueMax = currentValue;
-                indexMax = i;
+
+                return indexMax;
+
             }
-        }
-        return indexMax;
 
-    }
-
-
-    public static int valueOfNumber(char n) {
+    public static int valueOfNumber(char n){
         if (n >= '0' && n <= '9') {
             return n - '0';
         }
@@ -157,14 +157,14 @@ public class Ex1 {
 
     public static boolean compareBaseNum(String num, String base) {
         int baseInt = number2Int(base);
-        if (baseInt < 2 || baseInt > 16) {
-            System.out.println("wrong format!");
+        if (baseInt < 2 || baseInt >16) {
+
             return false;
         }
         for (int i = 0; i < num.length(); i++) {
             int digit = valueOfNumber(num.charAt(i));
             if (digit == -1 || digit >= baseInt) {
-                System.out.println("wrong format!");
+
                 return false;
             }
 
